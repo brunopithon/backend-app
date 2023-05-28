@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
+            $table->enum('type', ['PF', 'PJ']);
+            $table->string('name');
+            $table->string('identification')->unique();
+            $table->string('email')->unique();
+            $table->string('phone_number');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
